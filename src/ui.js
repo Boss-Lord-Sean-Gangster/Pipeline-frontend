@@ -17,6 +17,7 @@ import { NewOutputNode } from './nodes/NewOutputNode';
 import { NewLLMNode } from './nodes/newLlmNode';
 import { NewTextNode } from './nodes/NewTextNode';
 import { SubmitButton } from './submit';
+import DownloadButton from './DownloadButton';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -104,6 +105,9 @@ export const PipelineUI = () => {
 
     return (
         <>
+        <div className="absolute top-4 right-4">
+        <DownloadButton reactFlowRef={reactFlowWrapper}/>
+        </div>
         <div ref={reactFlowWrapper} style={{width: '100wv', height: '78vh'}}>
             <ReactFlow
                 nodes={nodes}

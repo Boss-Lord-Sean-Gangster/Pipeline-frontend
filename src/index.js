@@ -1,23 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import SignIn from './Signin';
 import SignUp from './Signup';
+import { PipelineUI } from './ui';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    <Router>
-    <Switch>
+  <Router>
+    <Routes>
       {/* Define routes for different pages */}
-      <Route exact path="/" component={App} />
-      <Route path="/signup" component={SignUp} />
-      <Route path="/signin" component={SignIn} />
+      <Route path="/" element={<App />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/signin" element={<SignIn />} />
       
-      {/* Handle unmatched routes */}
-      <Route path="*" component={NotFound} />
-    </Switch>
+      {/* Handle unmatched routes (optional) */}
+      {/* <Route path="*" element={<NotFound />} /> */}
+    </Routes>
   </Router>
-  
 );

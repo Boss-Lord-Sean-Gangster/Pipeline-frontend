@@ -9,9 +9,10 @@ export const SubmitButton = ({ nodes, edges }) => {
   const handleSubmit = async () => {
     try {
       const payload = { nodes, edges };
+      const backendUrl = process.env.REACT_APP_BACKEND_URL;
 
       // Sending the POST request to our fastapi server
-            const response = await axios.post("http://127.0.0.1:8000/pipelines/parse", payload);
+            const response = await axios.post(`${backendUrl}/pipelines/parse`, payload);
 
       const { num_nodes, num_edges } = response.data;
 
